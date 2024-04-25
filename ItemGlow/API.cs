@@ -10,6 +10,9 @@ public class API
 {
     public static void AddGlow(Func<ushort, bool> itemCheck, Color color, float intensity = 0.7f, float radius = 0.5f, float updateFrequency = 0.2f, bool glowInHands = true)
     {
+        if (!GlowHandler.IsEnabled)
+            GlowHandler.Enable();
+
         if (updateFrequency <= 0) throw new ArgumentOutOfRangeException(nameof(updateFrequency), "ItemGlow.API.AddGlow: updateFrequency must be greater than 0");
         
         string callingAssembly = Assembly.GetCallingAssembly().GetName().Name;

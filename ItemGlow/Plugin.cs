@@ -21,7 +21,7 @@ public class Plugin : Plugin<Config>
     public override void OnEnabled()
     {
         Instance = this;
-        GlowHandler.Enable();
+        //GlowHandler.Enable(); It will enable automatically when AddGlow is called the first time. OpTiMiZaTiOn :D
         base.OnEnabled();
     }
 

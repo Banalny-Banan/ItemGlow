@@ -10,15 +10,18 @@ namespace ItemGlow;
 internal static class GlowHandler
 {
     public delegate bool GlowGetter(ushort serial, out Glow glow);
+    public static bool IsEnabled { get; set; } = false;
 
     internal static void Enable()
     {
+        IsEnabled = true;
         Handlers.Player.ChangedItem += OnChangedItem;
         Handlers.Map.PickupAdded += OnMapPickupAdded;
     }
 
     internal static void Disable()
     {
+        IsEnabled = false;
         Handlers.Player.ChangedItem -= OnChangedItem;
         Handlers.Map.PickupAdded -= OnMapPickupAdded;
     }
