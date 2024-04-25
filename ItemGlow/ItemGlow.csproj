@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{DA7654F1-FFBF-4407-AD0F-016AFE2FFCE6}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>ItemGlow</RootNamespace>
+        <AssemblyName>ItemGlow</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <Deterministic>true</Deterministic>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony">
+          <HintPath>..\..\..\Desktop\libs\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>..\..\..\Desktop\libs\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+          <HintPath>..\..\..\Desktop\libs\Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="AudioPlayer">
+          <HintPath>..\..\..\Desktop\libs\AudioPlayer.dll</HintPath>
+        </Reference>
+        <Reference Include="CommandSystem.Core">
+          <HintPath>..\..\..\Desktop\libs\CommandSystem.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.API">
+          <HintPath>..\..\..\Desktop\libs\Exiled.API.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.CreditTags">
+          <HintPath>..\..\..\Desktop\libs\Exiled.CreditTags.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.Events">
+          <HintPath>..\..\..\Desktop\libs\Exiled.Events.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.Permissions">
+          <HintPath>..\..\..\Desktop\libs\Exiled.Permissions.dll</HintPath>
+        </Reference>
+        <Reference Include="Exiled.Updater">
+          <HintPath>..\..\..\Desktop\libs\Exiled.Updater.dll</HintPath>
+        </Reference>
+        <Reference Include="MapEditorReborn">
+          <HintPath>..\..\..\Desktop\libs\MapEditorReborn.dll</HintPath>
+        </Reference>
+        <Reference Include="Mirror">
+          <HintPath>..\..\..\Desktop\libs\Mirror.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Posix">
+          <HintPath>..\..\..\Desktop\libs\Mono.Posix.dll</HintPath>
+        </Reference>
+        <Reference Include="mscorlib">
+          <HintPath>..\..\..\Desktop\libs\mscorlib.dll</HintPath>
+        </Reference>
+        <Reference Include="NorthwoodLib">
+          <HintPath>..\..\..\Desktop\libs\NorthwoodLib.dll</HintPath>
+        </Reference>
+        <Reference Include="NVorbis">
+          <HintPath>..\..\..\Desktop\libs\NVorbis.dll</HintPath>
+        </Reference>
+        <Reference Include="PluginAPI">
+          <HintPath>..\..\..\Desktop\libs\PluginAPI.dll</HintPath>
+        </Reference>
+        <Reference Include="SCPSLAudioApi">
+          <HintPath>..\..\..\Desktop\libs\SCPSLAudioApi.dll</HintPath>
+        </Reference>
+        <Reference Include="SemanticVersioning">
+          <HintPath>..\..\..\Desktop\libs\SemanticVersioning.dll</HintPath>
+        </Reference>
+        <Reference Include="ShootingStats">
+          <HintPath>..\..\..\Desktop\libs\ShootingStats.dll</HintPath>
+        </Reference>
+        <Reference Include="SQLite-net">
+          <HintPath>..\..\..\Desktop\libs\SQLite-net.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.ComponentModel.DataAnnotations">
+          <HintPath>..\..\..\Desktop\libs\System.ComponentModel.DataAnnotations.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Core" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Net.Http" />
+        <Reference Include="System.Xml" />
+        <Reference Include="UnityEngine">
+          <HintPath>..\..\..\Desktop\libs\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AIModule">
+          <HintPath>..\..\..\Desktop\libs\UnityEngine.AIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule">
+          <HintPath>..\..\..\Desktop\libs\UnityEngine.AnimationModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>..\..\..\Desktop\libs\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>..\..\..\Desktop\libs\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TerrainModule">
+          <HintPath>..\..\..\Desktop\libs\UnityEngine.TerrainModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule">
+          <HintPath>..\..\..\Desktop\libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
+        </Reference>
+        <Reference Include="YamlDotNet">
+          <HintPath>..\..\..\Desktop\libs\YamlDotNet.dll</HintPath>
+        </Reference>
+        <Reference Include="zxing.unity">
+          <HintPath>..\..\..\Desktop\libs\zxing.unity.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="API.cs" />
+        <Compile Include="Config.cs" />
+        <Compile Include="Glow.cs" />
+        <Compile Include="GlowHandler.cs" />
+        <Compile Include="Helpers.cs" />
+        <Compile Include="Plugin.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Properties\" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
