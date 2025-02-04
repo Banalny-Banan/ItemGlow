@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Exiled.API.Features;
-using MapEditorReborn.API.Features.Objects;
+using Exiled.API.Features.Toys;
 using MEC;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public static class Helpers
 {
     public static Vector3 GetHandPosition(this Player player, bool compensateVelocity = true, bool compensateLatency = true)
     {
-        var handPosition = player.Position + player.CameraTransform.rotation * new Vector3(0.07f * player.Scale.x, 0.28f * player.Scale.y, 0.36f * player.Scale.z);
+        Vector3 handPosition = player.Position + player.CameraTransform.rotation * new Vector3(0.07f * player.Scale.x, 0.28f * player.Scale.y, 0.36f * player.Scale.z);
 
         handPosition += player.CameraTransform.rotation * new Vector3(0, 0.06f, 0);
 
@@ -24,37 +24,29 @@ public static class Helpers
         return handPosition;
     }
 
-    public static void AttachDynamically(this MapEditorObject child, Func<Vector3> getPosition, Func<Quaternion> getRotation, float updateFrequency = 0.2f, Func<bool> whileCondition = null)
+    public static void Attach(this AdminToy child, Func<Vector3> getPosition, Func<Quaternion> getRotation, float updateFrequency = 0.2f, Func<bool> whileCondition = null)
     {
-        whileCondition ??= () => true;
-        Timing.RunCoroutine(AttachObject(child, getPosition, getRotation, updateFrequency, whileCondition));
+        Timing.RunCoroutine(AttachCoroutine(child, getPosition, getRotation, updateFrequency, whileCondition));
     }
 
-    private static IEnumerator<float> AttachObject(MapEditorObject child, Func<Vector3> positionGetter, Func<Quaternion> rotationGetter, float updateFrequency, Func<bool> whileCondition)
+    static IEnumerator<float> AttachCoroutine(AdminToy child, Func<Vector3> positionGetter, Func<Quaternion> getRotation, float updateFrequency, Func<bool> condition)
     {
-        while (whileCondition())
+        while (condition())
         {
             try
             {
-                var update = false;
-                
-                var position = positionGetter();
-                if (Vector3.Distance(child.Position, position) > 0.01f)
+                Vector3 position = positionGetter();
+
+                if (child.Position != position)
                 {
-                    child.transform.position = position;
-                    update = true;
+                    child.Position = position;
                 }
 
-                var rotation = rotationGetter();
-                if (Quaternion.Angle(child.transform.rotation, rotation) > 0.01f)
-                {
-                    child.transform.rotation = rotation;
-                    update = true;
-                }
+                Quaternion rotation = getRotation();
 
-                if (update)
+                if (child.Rotation != rotation)
                 {
-                    child.UpdateObject();
+                    child.Rotation = rotation;
                 }
             }
             catch
