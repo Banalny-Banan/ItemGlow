@@ -15,16 +15,15 @@ internal static class GlowHandler
 
     internal static readonly List<GlowGetter> GlowGetters = [];
 
-    internal static void Enable()
+    static bool isEnabled;
+
+    public static void EnsureEnabled()
     {
+        if (isEnabled) return;
+        isEnabled = true;
+
         Handlers.Player.ChangedItem += OnChangedItem;
         Handlers.Map.PickupAdded += OnMapPickupAdded;
-    }
-
-    internal static void Disable()
-    {
-        Handlers.Player.ChangedItem -= OnChangedItem;
-        Handlers.Map.PickupAdded -= OnMapPickupAdded;
     }
 
     internal static bool TryGetGlow(ushort serial, out Glow glow)

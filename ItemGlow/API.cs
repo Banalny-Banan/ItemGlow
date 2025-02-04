@@ -16,6 +16,8 @@ public class API
     /// <exception cref="ArgumentOutOfRangeException">Thrown when updateInterval is less than 0.</exception>
     public static void AddGlow(Func<ushort, bool> itemCheck, Color color, float intensity = 0.7f, float radius = 0.5f, float updateInterval = 0.2f, bool glowInHands = true)
     {
+        GlowHandler.EnsureEnabled();
+
         if (updateInterval < 0)
             throw new ArgumentOutOfRangeException(nameof(updateInterval), "ItemGlow.API.AddGlow: updateInterval cannot be less than 0.");
 

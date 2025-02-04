@@ -37,7 +37,6 @@
         <Compile Include="Glow.cs" />
         <Compile Include="GlowHandler.cs" />
         <Compile Include="Helpers.cs" />
-        <Compile Include="Plugin.cs" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Properties\" />
